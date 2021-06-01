@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feline_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.abdoul.felinelove.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_felineDetailFragment"
+            app:destination="@id/felineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.abdoul.felinelove.ui.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_felineDetailFragment"
+            app:destination="@id/felineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/felineDetailFragment"
+        android:name="com.abdoul.felinelove.ui.FelineDetailFragment"
+        android:label="Feline details"
+        tools:layout="@layout/fragment_feline_detail">
+        <argument
+            android:name="localFeline"
+            app:argType="com.abdoul.felinelove.model.LocalFeline" />
+        <argument
+            android:name="isSaved"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_felineDetailFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+</navigation>
